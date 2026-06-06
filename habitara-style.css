@@ -163,6 +163,7 @@ nav.scrolled .nav-cta:hover      { background: var(--moss); color: var(--white);
   transition: background 0.4s;
 }
 nav.scrolled .hamburger span { background: var(--bark); }
+}
 
 /* ─── 4. MENÚ MÓVIL ─────────────────────────────────────────
    Overlay de pantalla completa. Clase `.open` desde main.js
@@ -735,9 +736,13 @@ footer {
    ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   /* Nav: oculta links de escritorio, muestra hamburguesa */
-  nav                      { padding: 0 24px; }
+  nav                      { padding: 0 20px; justify-content: space-between; }
   .nav-links, .nav-cta     { display: none; }
   .hamburger               { display: flex; }
+
+  /* Logo en móvil: más pequeño y pegado a la izquierda */
+  .nav-logo                { margin-right: auto; }
+  .nav-logo-img            { height: 56px; }
 
   /* Hero: vuelve al centro en móvil */
   .hero                    { align-items: center; text-align: center; }
