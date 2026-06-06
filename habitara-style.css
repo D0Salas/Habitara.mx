@@ -163,7 +163,6 @@ nav.scrolled .nav-cta:hover      { background: var(--moss); color: var(--white);
   transition: background 0.4s;
 }
 nav.scrolled .hamburger span { background: var(--bark); }
-}
 
 /* ─── 4. MENÚ MÓVIL ─────────────────────────────────────────
    Overlay de pantalla completa. Clase `.open` desde main.js
