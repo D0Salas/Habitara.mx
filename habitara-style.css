@@ -739,9 +739,9 @@ footer {
   .nav-links, .nav-cta     { display: none; }
   .hamburger               { display: flex; }
 
-  /* Logo en móvil: más pequeño y pegado a la izquierda */
+  /* Logo en móvil: ajustado al nav */
   .nav-logo                { margin-right: auto; }
-  .nav-logo-img            { height: 150px; }
+  .nav-logo-img            { height: 56px; margin-top: 0; }
 
   /* Hero: vuelve al centro en móvil */
   .hero                    { align-items: center; text-align: center; }
