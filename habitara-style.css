@@ -748,6 +748,9 @@ footer {
   .hero                    { align-items: center; text-align: center; }
   .hero-content            { align-items: center; padding: 0 24px; }
 
+  /* Logo hero: usa 90% del ancho para que no se corte */
+  .hero-logo               { width: 90vw; height: 130px; }
+
   /* Destinos: una columna */
   .destinations            { grid-template-columns: 1fr; }
   .destination             { height: 420px; }
