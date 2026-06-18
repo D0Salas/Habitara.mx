@@ -98,8 +98,14 @@ nav.scrolled {
   height: 60px;
   width: auto;
   /* Sobre el hero oscuro: logo en blanco */
+  filter: brightness(0) invert(1);
   transition: filter 0.4s;
   margin-top: 4px;
+}
+
+/* Nav sólido (scroll o página de destino): logo en su color dorado original */
+nav.scrolled .nav-logo-img {
+  filter: none;
 }
 
 /* Links del menú */
@@ -210,7 +216,7 @@ nav.scrolled .hamburger span { background: var(--bark); }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('images/hero.jpeg');
+  background-image: url('images/hero.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -252,11 +258,10 @@ nav.scrolled .hamburger span { background: var(--bark); }
 }
 
 .hero-tagline {
-  font-size: 15px;
-  font-weight: 450;
+  font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.55);
+  color: rgba(255,255,255,0.55);
   margin: 0 0 20px 0;   /* más espacio entre tagline y logo */
 }
 
@@ -766,8 +771,55 @@ footer {
   .footer-links   { gap: 16px; }
 }
 
+/* ─── TABS ─────────────────────────────────────────────────── */
+.tabs-wrapper { background: var(--cream); }
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  background: var(--sand);
+  border-bottom: 1px solid rgba(59,47,32,0.1);
+  padding: 0 48px;
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 50;
+}
+
+.tab-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 20px 36px;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+}
+.tab-btn:hover  { color: var(--bark); }
+.tab-btn.active { color: var(--bark); border-bottom-color: var(--clay); }
+
+.tab-panel        { display: none; }
+.tab-panel.active { display: block; }
+
+/* Anular fade-in dentro de tabs — debe estar al final */
+.tab-panel .fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 600px) {
+  .tabs-nav { padding: 0 8px; }
+  .tab-btn  { padding: 16px 12px; font-size: 10px; letter-spacing: 0.14em; }
+}
+
+
 /* ─── SOBRE HABITARA ─────────────────────────────────────────
-   Sección descriptiva entre el hero y el contenido principal.
+   Sección descriptiva entre el hero y los tabs.
    ──────────────────────────────────────────────────────────── */
 .sobre-habitara {
   background: var(--bark);
