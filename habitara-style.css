@@ -7,14 +7,11 @@
    3. Navegación
    4. Menú Móvil
    5. Hero
-   6. Intro
-   7. Destinos
-   8. Valores
-   9. Testimonial
-   10. Contacto
-   11. Footer
-   12. Animaciones
-   13. Responsive
+   6. Servicios
+   7. Contacto
+   8. Footer
+   9. Animaciones
+   10. Responsive
    ============================================================ */
 
 
@@ -98,14 +95,8 @@ nav.scrolled {
   height: 60px;
   width: auto;
   /* Sobre el hero oscuro: logo en blanco */
-  filter: brightness(0) invert(1);
   transition: filter 0.4s;
   margin-top: 4px;
-}
-
-/* Nav sólido (scroll o página de destino): logo en su color dorado original */
-nav.scrolled .nav-logo-img {
-  filter: none;
 }
 
 /* Links del menú */
@@ -216,7 +207,7 @@ nav.scrolled .hamburger span { background: var(--bark); }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('images/hero.jpg');
+  background-image: url('images/hero.jpeg');
   background-size: cover;
   background-position: center;
 }
@@ -257,44 +248,57 @@ nav.scrolled .hamburger span { background: var(--bark); }
   line-height: 1.05;
 }
 
-.hero-tagline {
+/* Eslogan debajo del logo */
+.hero-slogan {
   font-size: 13px;
-  letter-spacing: 0.22em;
+  font-weight: 450;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  margin: 0 0 20px 0;   /* más espacio entre tagline y logo */
+  color: rgba(255,255,255,0.75);
+  margin: 12px 0 40px;   /* baja levemente respecto al logo */
 }
 
-.hero-divider {
-  width: 40px;
-  height: 1px;
-  background: var(--clay);
-  margin: 20px 0 20px;  /* más espacio entre logo→línea y línea→botón */
+/* Dos opciones principales, centradas y simétricas */
+.hero-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
 }
 
-.hero-cta {
-  display: inline-block;
-  font-size: 12px;
+.hero-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  text-decoration: none;
+}
+
+.hero-option-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.hero-option-link {
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 14px 40px;
-  border: 1px solid rgba(201,184,154,0.7);
   color: var(--clay);
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
+  transition: color 0.3s;
 }
-.hero-cta:hover { background: var(--clay); color: var(--bark); }
+.hero-option-link::after { content: ' →'; }
+.hero-option:hover .hero-option-link { color: var(--white); }
 
-
-/* ─── 6. INTRO ───────────────────────────────────────────────
-   Bloque de bienvenida centrado.
-   ──────────────────────────────────────────────────────────── */
-.intro {
-  padding: 120px 48px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+.hero-options-divider {
+  width: 1px;
+  height: 44px;
+  background: rgba(255,255,255,0.25);
 }
+
 
 /* Etiqueta pequeña reutilizable en varias secciones */
 .section-label {
@@ -305,122 +309,82 @@ nav.scrolled .hamburger span { background: var(--bark); }
   margin-bottom: 20px;
 }
 
-.intro h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  color: var(--bark);
-  margin-bottom: 28px;
-}
-
-.intro p {
-  font-size: 17px;
-  color: var(--muted);
-  max-width: 580px;
-  margin: 0 auto;
-  line-height: 1.85;
-}
-
-
-/* ─── 7. DESTINOS ────────────────────────────────────────────
-   Grid de dos columnas con imagen de fondo por destino.
-   Para agregar la foto real, reemplaza el background-color
-   de .dest-qr y .dest-tab con background-image: url(...)
+/* ─── 6. SERVICIOS ───────────────────────────────────────────
+   Dos bloques simétricos separados por una línea divisoria,
+   con ícono, título, descripción y enlace "Ver más".
    ──────────────────────────────────────────────────────────── */
-.destinations {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.services {
+  background: var(--sand);
+  padding: 120px 48px;
 }
 
-.destination {
-  position: relative;
-  height: 580px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
+.services-header {
+  text-align: center;
+  margin-bottom: 80px;
 }
 
-.dest-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.8s ease;
-}
-.destination:hover .dest-bg { transform: scale(1.05); }
-
-/* REEMPLAZA los gradientes con tus fotos reales */
-.dest-qr  .dest-bg { background-color: #4a6060; background-image: linear-gradient(135deg, #2e5050 0%, #5a7a6a 100%); }
-
-/* ── Slideshow de destino ───────────────────────────────────
-   Cada .dest-slide ocupa todo el contenedor.
-   La clase .active es la visible; el JS la rota cada 6 seg.
-   El filtro mix-blend-mode + color replica el tono del hero.
-──────────────────────────────────────────────────────────── */
-.dest-slideshow {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.dest-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-  /* Filtro de color — mismo tono cálido del hero */
-  filter: sepia(0.35) saturate(0.8) brightness(0.75);
-}
-
-.dest-slide.active {
-  opacity: 1;
-}
-
-.dest-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(20,15,8,0.80) 0%, transparent 60%);
-}
-
-.dest-content {
-  position: relative;
-  z-index: 2;
-  padding: 48px;
-}
-
-.dest-label {
-  font-size: 10px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--clay);
-  margin-bottom: 8px;
-}
-
-.dest-content h3 {
+.services-header h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
+  font-size: clamp(36px, 4vw, 52px);
   font-weight: 300;
-  color: var(--white);
+  color: var(--bark);
   letter-spacing: 0.04em;
-  line-height: 1.1;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 64px;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.services-divider {
+  width: 1px;
+  height: 170px;
+  background: rgba(59,47,32,0.15);
+}
+
+.service-card {
+  text-align: center;
+  padding: 0 16px;
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border: 1px solid var(--clay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--moss);
+}
+
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--bark);
   margin-bottom: 14px;
 }
 
-.dest-content p {
+.service-card p {
   font-size: 14px;
-  color: rgba(255,255,255,0.65);
-  max-width: 320px;
-  margin-bottom: 28px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 24px;
 }
 
-.dest-link {
+.service-link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -430,114 +394,11 @@ nav.scrolled .hamburger span { background: var(--bark); }
   padding-bottom: 4px;
   transition: color 0.3s, border-color 0.3s;
 }
-.dest-link::after      { content: '→'; font-size: 14px; }
-.dest-link:hover       { color: var(--white); border-color: var(--white); }
+.service-link::after { content: '→'; font-size: 13px; }
+.service-link:hover  { color: var(--moss); border-color: var(--moss); }
 
 
-/* ─── 8. VALORES ─────────────────────────────────────────────
-   Tres columnas con íconos SVG y descripciones.
-   ──────────────────────────────────────────────────────────── */
-.values {
-  background: var(--sand);
-  padding: 120px 48px;
-}
-
-.values-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.values-header h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 300;
-  color: var(--bark);
-  letter-spacing: 0.04em;
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.value-card {
-  text-align: center;
-  padding: 0 16px;
-}
-
-.value-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 20px;
-  border: 1px solid var(--clay);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.value-icon svg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--moss);
-}
-
-.value-tag {
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--clay);
-  margin-bottom: 10px;
-}
-
-.value-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--bark);
-  margin-bottom: 14px;
-}
-
-.value-card p {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-
-/* ─── 9. TESTIMONIAL ─────────────────────────────────────────
-   Cita centrada. Para agregar más, duplica el bloque en HTML.
-   ──────────────────────────────────────────────────────────── */
-.testimonial {
-  padding: 120px 48px;
-  text-align: center;
-  background: var(--cream);
-}
-
-.testimonial blockquote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 3vw, 34px);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--bark);
-  max-width: 760px;
-  margin: 0 auto 28px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-}
-.testimonial blockquote::before { content: '\201C'; }
-.testimonial blockquote::after  { content: '\201D'; }
-
-.testimonial-author {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--clay);
-}
-
-
-/* ─── 10. CONTACTO ───────────────────────────────────────────
+/* ─── 7. CONTACTO ───────────────────────────────────────────
    Sección oscura con info de contacto y formulario.
    ──────────────────────────────────────────────────────────── */
 .contact-section {
@@ -601,8 +462,11 @@ nav.scrolled .hamburger span { background: var(--bark); }
   justify-content: center;
   color: var(--clay);
   text-decoration: none;
-  font-size: 14px;
-  transition: background 0.3s, border-color 0.3s;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+.social-row a svg {
+  width: 16px;
+  height: 16px;
 }
 .social-row a:hover {
   background: var(--clay);
@@ -670,7 +534,7 @@ nav.scrolled .hamburger span { background: var(--bark); }
 }
 
 
-/* ─── 11. FOOTER ─────────────────────────────────────────────
+/* ─── 8. FOOTER ─────────────────────────────────────────────
    Barra inferior con logo, links legales y copyright.
    ──────────────────────────────────────────────────────────── */
 footer {
@@ -712,7 +576,7 @@ footer {
 }
 
 
-/* ─── 12. ANIMACIONES ────────────────────────────────────────
+/* ─── 9. ANIMACIONES ────────────────────────────────────────
    Clase `.fade-in` se activa con `.visible` desde main.js
    usando IntersectionObserver al hacer scroll.
    ──────────────────────────────────────────────────────────── */
@@ -727,7 +591,7 @@ footer {
 }
 
 
-/* ─── 13. RESPONSIVE ─────────────────────────────────────────
+/* ─── 10. RESPONSIVE ─────────────────────────────────────────
    Breakpoint en 900px para pantallas medianas y móviles.
    ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -747,12 +611,13 @@ footer {
   /* Logo hero: usa 88% del ancho para que no se corte en ningún dispositivo */
   .hero-logo               { width: 88vw; height: auto; }
 
-  /* Destinos: una columna */
-  .destinations            { grid-template-columns: 1fr; }
-  .destination             { height: 420px; }
+  /* Hero: las dos opciones se apilan en móvil */
+  .hero-options            { flex-direction: column; gap: 28px; }
+  .hero-options-divider    { width: 40px; height: 1px; }
 
-  /* Valores: una columna */
-  .values-grid             { grid-template-columns: 1fr; gap: 40px; }
+  /* Servicios: una columna, línea divisoria pasa a horizontal */
+  .services-grid           { grid-template-columns: 1fr; gap: 40px; }
+  .services-divider         { width: 100%; height: 1px; }
 
   /* Contacto: una columna */
   .contact {
@@ -762,64 +627,15 @@ footer {
   }
 
   /* Padding reducido en secciones */
-  .intro       { padding: 80px 24px; }
-  .values      { padding: 80px 24px; }
-  .testimonial { padding: 80px 24px; }
+  .services { padding: 80px 24px; }
 
   /* Footer en columna */
   footer          { flex-direction: column; align-items: flex-start; gap: 16px; }
   .footer-links   { gap: 16px; }
 }
 
-/* ─── TABS ─────────────────────────────────────────────────── */
-.tabs-wrapper { background: var(--cream); }
-
-.tabs-nav {
-  display: flex;
-  justify-content: center;
-  background: var(--sand);
-  border-bottom: 1px solid rgba(59,47,32,0.1);
-  padding: 0 48px;
-  position: sticky;
-  top: var(--nav-h);
-  z-index: 50;
-}
-
-.tab-btn {
-  font-family: 'Jost', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: 20px 36px;
-  cursor: pointer;
-  transition: color 0.3s, border-color 0.3s;
-}
-.tab-btn:hover  { color: var(--bark); }
-.tab-btn.active { color: var(--bark); border-bottom-color: var(--clay); }
-
-.tab-panel        { display: none; }
-.tab-panel.active { display: block; }
-
-/* Anular fade-in dentro de tabs — debe estar al final */
-.tab-panel .fade-in {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-@media (max-width: 600px) {
-  .tabs-nav { padding: 0 8px; }
-  .tab-btn  { padding: 16px 12px; font-size: 10px; letter-spacing: 0.14em; }
-}
-
-
 /* ─── SOBRE HABITARA ─────────────────────────────────────────
-   Sección descriptiva entre el hero y los tabs.
+   Sección descriptiva entre el hero y el contenido principal.
    ──────────────────────────────────────────────────────────── */
 .sobre-habitara {
   background: var(--bark);
