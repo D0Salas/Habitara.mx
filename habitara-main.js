@@ -151,22 +151,3 @@ function handleSubmit(e) {
   }, 1200); // simula latencia de red
   /* ─────────────────────────────────────────────── */
 }
-
-
-/* ─── TABS ─────────────────────────────────────────────────── */
-(function() {
-  var btns   = document.querySelectorAll('.tab-btn');
-  var panels = document.querySelectorAll('.tab-panel');
-  if (!btns.length || !panels.length) return;
-
-  btns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var idx = parseInt(btn.getAttribute('data-tab'));
-      btns.forEach(function(b)   { b.classList.remove('active'); });
-      panels.forEach(function(p) { p.classList.remove('active'); });
-      btn.classList.add('active');
-      panels[idx].classList.add('active');
-      document.querySelector('.tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-})();
