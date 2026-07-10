@@ -65,10 +65,8 @@
 
   <!-- ══════════════════════════════════════════════════════════
        HERO — Pantalla de bienvenida
-       - .hero-eyebrow   → subtítulo pequeño arriba
-       - .hero-headline  → nombre de la marca grande
-       - .hero-tagline   → frase debajo del nombre
-       - .hero-cta       → botón de llamada a la acción
+       - .hero-logo      → logotipo con isotipo de HABITARA
+       - .hero-options   → las dos opciones principales
        - .hero-bg        → REEMPLAZA el fondo con tu foto:
                            agrega background-image: url('images/hero.jpg')
                            en el archivo style.css, sección HERO.
@@ -79,8 +77,17 @@
     <div class="hero-content">
       <p class="hero-tagline">Tu hogar en cada destino</p>
       <img src="images/logo-hero.svg" alt="Habitara" class="hero-logo" />
-      <div class="hero-divider"></div>
-      <a href="#destinos" class="hero-cta">Descubrir</a>
+
+      <div class="hero-options">
+        <a href="#sobre" class="hero-option">
+          <span class="hero-option-title">Gestionamos Tu Propiedad</span>
+          <span class="hero-option-link">Ver más</span>
+        </a>
+        <a href="#sobre" class="hero-option">
+          <span class="hero-option-title">Encuentra Tu Alojamiento</span>
+          <span class="hero-option-link">Ver más</span>
+        </a>
+      </div>
     </div>
 
   </section>
