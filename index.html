@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio | Habitara</title>
+  <meta name="description" content="Espacios privados para tu descanso. Áreas comunes para desconectar. Vive la experiencia Habitara a tu propio ritmo." />
+
+  <!-- ─── FUENTES (Google Fonts) ───────────────────────────────
+       Cormorant Garamond → títulos y encabezados (serif elegante)
+       Jost              → textos y botones (sans-serif limpio)
+  ──────────────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- ─── ESTILOS ──────────────────────────────────────────────
+       Todo el diseño visual vive en style.css
+  ──────────────────────────────────────────────────────────── -->
+  <link rel="stylesheet" href="habitara-style.css" />
+  <link rel="icon" type="image/svg+xml" href="images/logo-nav.svg" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVEGACIÓN
+       - .nav-logo     → cambia el nombre de la marca
+       - .nav-links    → agrega o quita páginas del menú
+       - .nav-cta      → texto y destino del botón principal
+  ══════════════════════════════════════════════════════════ -->
+  <nav id="mainNav">
+    <a href="#" class="nav-logo">
+      <img src="images/logo-nav.svg" alt="Habitara" class="nav-logo-img" />
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#sobre">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+    </ul>
+
+    <a href="#contacto" class="nav-cta">Contáctanos</a>
+
+    <button class="hamburger" id="menuBtn" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       MENÚ MÓVIL (overlay pantalla completa)
+       Se controla desde main.js con la clase `.open`
+  ══════════════════════════════════════════════════════════ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="closeMenu" aria-label="Cerrar menú">×</button>
+    <a href="#">Inicio</a>
+    <a href="#sobre">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contáctanos</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO — Pantalla de bienvenida
+       - .hero-logo      → logotipo con isotipo de HABITARA
+       - .hero-options   → las dos opciones principales
+       - .hero-bg        → REEMPLAZA el fondo con tu foto:
+                           agrega background-image: url('images/hero.jpg')
+                           en el archivo style.css, sección HERO.
+  ══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <img src="images/logo-hero.svg" alt="Habitara" class="hero-logo" />
+
+      <div class="hero-options">
+        <a href="#servicios" class="hero-option">
+          <span class="hero-option-title">Gestionamos Tu Propiedad</span>
+          <span class="hero-option-link">Ver más</span>
+        </a>
+        <div class="hero-options-divider"></div>
+        <a href="#servicios" class="hero-option">
+          <span class="hero-option-title">Encuentra Tu Alojamiento</span>
+          <span class="hero-option-link">Ver más</span>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SOBRE HABITARA
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sobre-habitara fade-in" id="sobre">
+    <div class="sobre-inner">
+      <p class="section-label">Sobre Habitara</p>
+      <h2>Más que una estancia, una experiencia</h2>
+      <p>En HABITARA creamos y gestionamos espacios diseñados para habitarse con comodidad, orden y confianza.</p>
+      <p>Acompañamos a huéspedes que buscan alojamiento flexible y bien ubicado, así como a propietarios que desean transformar su inmueble en una operación profesional, cuidada y rentable.</p>
+      <p>Conoce nuestros servicios y descubre cómo podemos ayudarte.</p>
+    </div>
+  </section>
+
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SERVICIOS — Dos bloques simétricos
+       Para cambiar un ícono, reemplaza el SVG dentro de
+       .service-icon por cualquier SVG de línea (stroke).
+  ══════════════════════════════════════════════════════════ -->
+  <section class="services" id="servicios">
+
+    <div class="services-header fade-in">
+      <p class="section-label">Nuestros Servicios</p>
+      <h2>Conoce nuestros servicios</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Servicio 1: Encuentra Tu Alojamiento -->
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11.5 12 4l8 7.5"/>
+            <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"/>
+            <path d="M12 20v-5"/>
+          </svg>
+        </div>
+        <h3>Encuentra Tu Alojamiento</h3>
+        <p>Descubre alojamientos únicos y seleccionados para que vivas experiencias inolvidables.</p>
+        <a href="#contacto" class="service-link">Ver más</a>
+      </div>
+
+      <div class="services-divider"></div>
+
+      <!-- Servicio 2: Gestionamos Tu Propiedad -->
+      <div class="service-card fade-in" style="transition-delay: 0.12s">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11.5 12 4l8 7.5"/>
+            <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"/>
+            <circle cx="10" cy="14.5" r="1.4"/>
+            <path d="M11.4 14.5h3.6M14 14.5v2"/>
+          </svg>
+        </div>
+        <h3>Gestionamos Tu Propiedad</h3>
+        <p>Nos encargamos de todo para que tu propiedad esté en las mejores manos y genere resultados.</p>
+        <a href="#contacto" class="service-link">Ver más</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       CONTACTO — Info + Formulario
+       - Cambia el teléfono y correo en .contact-detail
+       - Los links de redes sociales están en .social-row
+       - El formulario se maneja en main.js → handleSubmit()
+  ══════════════════════════════════════════════════════════ -->
+  <section class="contact-section" id="contacto">
+    <div class="contact">
+
+      <!-- Columna izquierda: info -->
+      <div class="contact-info fade-in">
+        <h2>Contáctanos</h2>
+
+        <div class="contact-detail">
+          <a href="tel:+529931117133">+52 993 111 7133</a>
+          <a href="mailto:contacto@habitara.mx">contacto@habitara.mx</a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://www.instagram.com/habitara_mx" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4.2"/>
+              <circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/1Dodgs87RV/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M14.5 8.5H16V5.7h-1.9c-2.3 0-3.7 1.4-3.7 3.7v1.6H8.6v3h1.8v6.3h3v-6.3h2.2l.5-3h-2.7V9.6c0-.6.3-1.1 1.1-1.1z"/>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@habitara_mx" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M15.5 3h-2.7v10.9a2.8 2.8 0 1 1-2-2.7v-2.8a5.7 5.7 0 1 0 4.7 5.6V9.4a7 7 0 0 0 3.5 1V7.6a4.3 4.3 0 0 1-3.5-3.6V3z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/529931117133" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+              <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/>
+              <path d="M8.6 8.8c.2-.5.4-.5.6-.5h.4c.15 0 .3.05.45.4.2.5.6 1.4.65 1.5.05.15.1.3 0 .5-.1.2-.15.3-.3.45-.15.15-.25.3-.1.55.15.3.65 1.1 1.4 1.75.95.85 1.7 1.1 2 1.25.3.15.45.1.6-.05.15-.2.6-.7.75-.95.15-.25.3-.2.5-.1s1.25.6 1.45.7c.2.1.35.15.4.25.05.15.05.75-.2 1.4-.25.65-1.3 1.25-1.75 1.3-.45.1-.95.15-3.1-.65-2.6-1-4.2-3.6-4.35-3.8-.15-.2-1.05-1.35-1.05-2.55 0-1.2.65-1.8.85-2.05z" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna derecha: formulario -->
+      <form class="contact-form fade-in">
+        <div class="form-field">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+        </div>
+        <div class="form-field">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="+52 000 000 0000" />
+        </div>
+        <div class="form-field">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar</button>
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       - .footer-links → agrega o quita páginas legales
+       - .footer-copy  → cambia el año y nombre
+  ══════════════════════════════════════════════════════════ -->
+  <footer>
+
+    <div class="footer-links">
+      <a href="/politica-de-privacidad">Política de Privacidad</a>
+      <a href="/terminos">Términos y Condiciones</a>
+      <a href="/accesibilidad">Accesibilidad</a>
+      <a href="/reembolso">Política de Reembolso</a>
+    </div>
+
+    <p class="footer-copy">© 2025 Habitara. Todos los derechos reservados.</p>
+  </footer>
+
+
+  <!-- ─── JAVASCRIPT ────────────────────────────────────────────
+       Se carga al final para no bloquear el render del HTML.
+  ──────────────────────────────────────────────────────────── -->
+  <script src="habitara-main.js"></script>
+
+</body>
+</html>
